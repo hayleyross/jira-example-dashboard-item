@@ -6,11 +6,11 @@
     <artifactId>jira-depindency</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <organization>
-        <name>Example Company</name>
-        <url>http://www.example.com/</url>
+        <name>Softwire</name>
+        <url>http://www.softwire.com/</url>
     </organization>
     <name>jira-depindency</name>
-    <description>This is the com.softwire.jira:jira-depindency plugin for Atlassian JIRA.</description>
+    <description>Displays a graph of dependencies between issues on your dashboard</description>
     <packaging>atlassian-plugin</packaging>
     <dependencies>
         <dependency>

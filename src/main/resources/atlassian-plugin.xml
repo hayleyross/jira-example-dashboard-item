@@ -13,12 +13,28 @@
   <!-- add our web resources -->
   <web-resource key="jira-depindency-resources" name="jira-depindency Web Resources">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <transformation extension="soy">
+      <transformer key="soyTransformer"/>
+    </transformation>        ...
+    <resource type="download" name="depindency-template-soy.js" location="/soy/depindency-template.soy"/>
     <resource type="download" name="jira-depindency.css" location="/css/jira-depindency.css"/>
     <resource type="download" name="jira-depindency.js" location="/js/jira-depindency.js"/>
     <resource type="download" name="images/" location="/images"/>
-    <context>jira-depindency</context>
+    <context>atl.global</context>
   </web-resource>
-  <gadget name="depindencygadget" i18n-name-key="depindencygadget.name" key="depindencygadget" location="gadgets/depindencygadget/gadget.xml">
-    <description key="depindencygadget.description">The depindencygadget Plugin</description>
-  </gadget>
+  <dashboard-item key="depindency-dashboard-item">
+    <definition>
+      <title key="gadget.depindency.title" />
+      <categories>
+        <category>JIRA</category>
+      </categories>
+      <author>
+        <name>Atlassian</name>
+      </author>
+      <thumbnail location="http://www.google.com/gadgets/directory/348515928-no_image_gadget_thm.png"/><!-- TODO fix me, use a resource -->
+    </definition>
+    <description key="gadget.depindency.description"/>
+    <!--<resource name="view" type="soy" location=":jira-depindency-resources/Com.Softwire.Jira.Depindency.Templates"/>-->
+    <amd-module>jira-depindency/main</amd-module>
+  </dashboard-item>
 </atlassian-plugin>
