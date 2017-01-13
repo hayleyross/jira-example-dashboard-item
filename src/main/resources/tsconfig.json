@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "baseUrl": "./typescript",
+    "outFile": "./js/depindency.js",
+    "sourceMap": true
+  },
+  "include": [
+    "./typescript/**/*"
+  ]
+}
