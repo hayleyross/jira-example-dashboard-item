@@ -1,6 +1,6 @@
-package it.com.softwire.jira.depindency.rest;
+package it.com.softwire.jira.example.rest;
 
-import com.softwire.jira.depindency.rest.DependencyRestResourceModel;
+import com.softwire.jira.example.rest.models.MessageModel;
 import org.apache.wink.client.Resource;
 import org.apache.wink.client.RestClient;
 import org.junit.After;
@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class DependencyRestResourceFuncTest {
+public class ExampleRestResourceFuncTest {
 
     @Before
     public void setup() {
@@ -25,13 +25,13 @@ public class DependencyRestResourceFuncTest {
     public void messageIsValid() {
 
         String baseUrl = System.getProperty("baseurl");
-        String resourceUrl = baseUrl + "/rest/depindencyapi/1.0/message";
+        String resourceUrl = baseUrl + "/rest/example-api/1.0/message/hello";
 
         RestClient client = new RestClient();
         Resource resource = client.resource(resourceUrl);
 
-        DependencyRestResourceModel message = resource.get(DependencyRestResourceModel.class);
+        MessageModel message = resource.get(MessageModel.class);
 
-        assertEquals("wrong message","Hello World from the REST resource",message.getMessage());
+        assertEquals("wrong message", "Hello World from the REST resource", message.getMessage());
     }
 }

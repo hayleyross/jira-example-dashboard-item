@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "amd",
     "baseUrl": "./typescript",
-    "outFile": "./js/depindency.js",
+    "outFile": "./js/exampleDashboardItem.js",
     "sourceMap": true
   },
   "include": [

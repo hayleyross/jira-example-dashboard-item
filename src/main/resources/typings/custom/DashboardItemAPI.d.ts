@@ -29,7 +29,7 @@ declare interface DashboardItemAPI {
     /**
      * Trigger a refresh of the dashboard item.
      */
-    initRefresh(): void;
+    initRefresh(preferences, callback): void;
 
     /**
      * Shows the loading bar for the dashboard item.
@@ -42,9 +42,9 @@ declare interface DashboardItemAPI {
     hideLoadingBar(): void;
 
     /**
-     * Hides the loading bar for the dashboard item.
+     * Returns the context for the dashboard item.
      */
-    getContext(): any; // TODO, probably HTMLElement
+    getContext(): JQuery;
 
     /**
      * Close the edit dialog of the dashboard item.
@@ -54,7 +54,7 @@ declare interface DashboardItemAPI {
     /**
      * Returns the Id for the dashboard item.
      */
-    getGadgetId(): any; // TODO, like number or string
+    getGadgetId(): string;
 
     /**
      * When you add some content dynamically to your dashboard item and it causes the height to increase a scroll will appear.
@@ -63,4 +63,25 @@ declare interface DashboardItemAPI {
     resize(): any;
 
     once(event: string, callback: () => void);
+
+    gadget: Gadget;
+}
+
+// TODO lots more stuff on this
+declare interface Gadget {
+    amdModule: string;
+    configurable: boolean;
+    context: any;
+    gadgetUrl: string;
+    id: string;
+    isMaximizable: true;
+    layoutManager: any;
+    loaded: boolean;
+    minimized: boolean;
+    moduleAPI: DashboardItemAPI;
+    publicInterface: any;
+    securityToken: any;
+    title: string;
+    userPrefs: any;
+    webResourceKey: any;
 }

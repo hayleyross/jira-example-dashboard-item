@@ -1,8 +1,11 @@
-package com.softwire.jira.depindency.rest;
+package com.softwire.jira.example.rest;
 
 import com.atlassian.plugins.rest.common.security.AnonymousAllowed;
+import com.softwire.jira.example.rest.models.MessageModel;
 
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -10,7 +13,7 @@ import javax.ws.rs.core.Response;
  * A resource of message.
  */
 @Path("/message")
-public class DependencyRestResource {
+public class ExampleRestResource {
 
     @GET
     @AnonymousAllowed
@@ -18,6 +21,6 @@ public class DependencyRestResource {
     @Path("/hello")
     public Response getMessage()
     {
-       return Response.ok(new DependencyRestResourceModel("Hello World from the REST resource")).build();
+       return Response.ok(new MessageModel("Hello World from the REST resource")).build();
     }
 }

@@ -1,5 +1,7 @@
 {
   "globalDependencies": {
+    "AJS": "file:./typings/custom/AJS.d.ts",
+    "DashboardItemAPI": "file:./typings/custom/DashboardItemAPI.d.ts",
     "jquery": "registry:dt/jquery#1.10.0+20170104155652"
   }
 }

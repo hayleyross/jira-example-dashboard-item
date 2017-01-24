@@ -1,7 +1,7 @@
-package ut.com.softwire.jira.depindency.rest;
+package ut.com.softwire.jira.example.rest;
 
-import com.softwire.jira.depindency.rest.DependencyRestResource;
-import com.softwire.jira.depindency.rest.DependencyRestResourceModel;
+import com.softwire.jira.example.rest.ExampleRestResource;
+import com.softwire.jira.example.rest.models.MessageModel;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 
 import static org.junit.Assert.assertEquals;
 
-public class DependencyRestResourceTest {
+public class ExampleRestResourceTest {
 
     @Before
     public void setup() {
@@ -24,10 +24,10 @@ public class DependencyRestResourceTest {
 
     @Test
     public void messageIsValid() {
-        DependencyRestResource resource = new DependencyRestResource();
+        ExampleRestResource resource = new ExampleRestResource();
 
         Response response = resource.getMessage();
-        final DependencyRestResourceModel message = (DependencyRestResourceModel) response.getEntity();
+        final MessageModel message = (MessageModel) response.getEntity();
 
         assertEquals("wrong message","Hello World from the REST resource",message.getMessage());
     }

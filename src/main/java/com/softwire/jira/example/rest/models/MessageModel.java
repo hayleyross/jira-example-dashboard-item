@@ -1,17 +1,17 @@
-package com.softwire.jira.depindency.rest;
+package com.softwire.jira.example.rest.models;
 
 import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "message")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DependencyRestResourceModel {
+public class MessageModel {
 
     @XmlElement(name = "value")
     private String message;
 
-    public DependencyRestResourceModel() {
+    public MessageModel() {
     }
 
-    public DependencyRestResourceModel(String message) {
+    public MessageModel(String message) {
         this.message = message;
     }
 

@@ -1,44 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
-  <plugin-info>
-    <description>${project.description}</description>
-    <version>${project.version}</version>
-    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
-    <param name="plugin-icon">images/pluginIcon.png</param>
-    <param name="plugin-logo">images/pluginLogo.png</param>
-  </plugin-info>
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
   <!-- add our i18n resource -->
-  <resource type="i18n" name="i18n" location="jira-depindency"/>
-  <!-- add our web resources -->
-  <web-resource key="jira-depindency-resources" name="jira-depindency Web Resources">
-    <dependency>com.atlassian.auiplugin:ajs</dependency>
-    <transformation extension="soy">
-      <transformer key="soyTransformer"/>
-    </transformation>
-    <resource type="download" name="depindency-template-soy.js" location="/soy/depindency-template.soy"/>
-    <resource type="download" name="jira-depindency.css" location="/css/jira-depindency.css"/>
-    <resource type="download" name="depindency.js" location="/js/depindency.js"/>
-    <resource type="download" name="images/" location="/images"/>
-    <context>jira.dashboard</context>
-  </web-resource>
-  <dashboard-item key="depindency-dashboard-item">
-    <definition>
-      <title key="gadget.depindency.title"/>
-      <categories>
-        <category>JIRA</category>
-      </categories>
-      <author>
-        <name>Softwire</name>
-      </author>
-      <!-- Must be absolute as web resources are batched -->
-      <thumbnail location="https://www.atlassian.com/docroot/wac/resources/wac/img/social-icons/jira_logo.jpg"/>
-    </definition>
-    <description key="gadget.depindency.description"/>
-    <!--<resource name="view" type="soy" location=":jira-depindency-resources/Com.Softwire.Jira.Depindency.Templates"/>-->
-    <amd-module>JiraDependencyDashboardItem</amd-module>
-  </dashboard-item>
-  <rest name="Dependency Rest Resource" key="dependency-rest-resource" path="/depindency-api" version="1.0">
-    <description>The Depindency Rest Resource Plugin</description>
-  </rest>
+  <resource type="i18n" name="i18n" location="example-dashboard-item"/>
+    <!-- add our web resources -->
+    <web-resource key="jira-example-resources" name="jira-example Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <transformation extension="less">
+            <transformer key="lessTransformer"/>
+        </transformation>
+        <resource type="download" name="example-template-soy.js" location="/soy/example-template.soy"/>
+        <resource type="download" name="exampleDashboardItem.css" location="/css/exampleDashboardItem.css"/>
+        <resource type="download" name="exampleDashboardItem.js" location="/js/exampleDashboardItem.js"/>
+        <resource type="download" name="images/" location="/images"/>
+        <context>atl.dashboard</context>
+    </web-resource>
+    <dashboard-item key="example-dashboard-item">
+        <definition>
+            <title key="gadget.example.title"/>
+            <categories>
+                <category>JIRA</category>
+            </categories>
+            <author>
+                <name>Softwire</name>
+            </author>
+            <!-- (122px x 62px) -->
+            <thumbnail location="https://www.atlassian.com/docroot/wac/resources/wac/img/social-icons/jira_logo.jpg"/>
+        </definition>
+        <description key="gadget.example.description"/>
+        <!--<resource name="view" type="soy" location=":jira-example-resources/Com.Softwire.Jira.Example.Templates"/>-->
+        <amd-module>ExampleDashboardItem</amd-module>
+    </dashboard-item>
+    <rest name="Example Rest Resource" key="example-rest-resource" path="/example-api" version="1.0">
+        <description>Example Rest Resource Plugin</description>
+    </rest>
 </atlassian-plugin>

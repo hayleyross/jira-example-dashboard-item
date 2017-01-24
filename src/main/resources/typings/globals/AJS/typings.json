@@ -2,7 +2,7 @@
   "resolution": "main",
   "tree": {
     "src": "C:\\Users\\HER\\Work\\JiraDepindency\\jira-depindency\\src\\main\\resources\\typings\\custom\\AJS.d.ts",
-    "raw": "file:src/main/resources/typings/custom/AJS.d.ts",
+    "raw": "file:./typings/custom/AJS.d.ts",
     "typings": "C:\\Users\\HER\\Work\\JiraDepindency\\jira-depindency\\src\\main\\resources\\typings\\custom\\AJS.d.ts"
   }
 }
