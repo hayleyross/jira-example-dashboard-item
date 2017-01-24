@@ -2,3 +2,6 @@
 
 /target/
 /src/main/resources/js/*.js.map
+/src/main/resources/js/jira-depindency.js
+/src/main/resources/js/depindency.js
+/src/main/resources/js/depindency.js.map

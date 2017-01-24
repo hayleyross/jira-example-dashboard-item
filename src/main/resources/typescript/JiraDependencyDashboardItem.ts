@@ -1,6 +1,15 @@
+/// <reference path="../typings/globals/jquery/index.d.ts" />
+
+declare const $: JQueryStatic;
+declare const AJS: any;
+
 class JiraDependencyDashboardItem {
     constructor(private API) {
         console.log("Testing Typescript");
+
+        if ($.ajax) {
+            console.log("Ajax available")
+        }
     }
 
     /**
