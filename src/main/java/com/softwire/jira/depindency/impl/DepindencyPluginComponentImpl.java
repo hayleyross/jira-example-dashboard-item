@@ -3,20 +3,20 @@ package com.softwire.jira.depindency.impl;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.ApplicationProperties;
-import com.softwire.jira.depindency.api.MyPluginComponent;
+import com.softwire.jira.depindency.api.DepindencyPluginComponent;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@ExportAsService ({MyPluginComponent.class})
-@Named ("myPluginComponent")
-public class MyPluginComponentImpl implements MyPluginComponent
+@ExportAsService ({DepindencyPluginComponent.class})
+@Named ("depindencyPluginComponent")
+public class DepindencyPluginComponentImpl implements DepindencyPluginComponent
 {
     @ComponentImport
     private final ApplicationProperties applicationProperties;
 
     @Inject
-    public MyPluginComponentImpl(final ApplicationProperties applicationProperties)
+    public DepindencyPluginComponentImpl(final ApplicationProperties applicationProperties)
     {
         this.applicationProperties = applicationProperties;
     }
@@ -25,9 +25,9 @@ public class MyPluginComponentImpl implements MyPluginComponent
     {
         if(null != applicationProperties)
         {
-            return "myComponent:" + applicationProperties.getDisplayName();
+            return "depindencyComponent:" + applicationProperties.getDisplayName();
         }
         
-        return "myComponent";
+        return "depindencyComponent";
     }
 }

@@ -15,14 +15,12 @@
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <transformation extension="soy">
       <transformer key="soyTransformer"/>
-    </transformation>        ...
+    </transformation>
     <resource type="download" name="depindency-template-soy.js" location="/soy/depindency-template.soy"/>
     <resource type="download" name="jira-depindency.css" location="/css/jira-depindency.css"/>
-    <resource type="download" name="jira-depindency.js" location="/js/jira-depindency.js"/><!-- TODO delete when no longer needed-->
     <resource type="download" name="depindency.js" location="/js/depindency.js"/>
     <resource type="download" name="images/" location="/images"/>
     <context>jira.dashboard</context>
-    <context>atl.dashboard</context><!-- TODO unsure if needed-->
   </web-resource>
   <dashboard-item key="depindency-dashboard-item">
     <definition>

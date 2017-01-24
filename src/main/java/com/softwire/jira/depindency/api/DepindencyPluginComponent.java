@@ -1,6 +1,6 @@
 package com.softwire.jira.depindency.api;
 
-public interface MyPluginComponent
+public interface DepindencyPluginComponent
 {
     String getName();
 }
