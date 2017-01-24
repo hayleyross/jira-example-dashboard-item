@@ -24,17 +24,21 @@
   </web-resource>
   <dashboard-item key="depindency-dashboard-item">
     <definition>
-      <title key="gadget.depindency.title" />
+      <title key="gadget.depindency.title"/>
       <categories>
         <category>JIRA</category>
       </categories>
       <author>
         <name>Softwire</name>
       </author>
-      <thumbnail location="http://www.google.com/gadgets/directory/348515928-no_image_gadget_thm.png"/><!-- TODO fix me, use a resource -->
+      <!-- TODO fix me, use a resource -->
+      <thumbnail location="http://www.google.com/gadgets/directory/348515928-no_image_gadget_thm.png"/>
     </definition>
     <description key="gadget.depindency.description"/>
     <!--<resource name="view" type="soy" location=":jira-depindency-resources/Com.Softwire.Jira.Depindency.Templates"/>-->
     <amd-module>JiraDependencyDashboardItem</amd-module>
   </dashboard-item>
+  <rest name="Dependency Rest Resource" key="dependency-rest-resource" path="/depindency-api" version="1.0">
+    <description>The Depindency Rest Resource Plugin</description>
+  </rest>
 </atlassian-plugin>

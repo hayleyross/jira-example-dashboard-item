@@ -1,15 +1,10 @@
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 
-declare const $: JQueryStatic;
-declare const AJS: any;
+import * as Repository from "Repository";
 
 class JiraDependencyDashboardItem {
     constructor(private API) {
-        console.log("Testing Typescript");
-
-        if ($.ajax) {
-            console.log("Ajax available")
-        }
+        this.getDataFromApi();
     }
 
     /**
@@ -23,6 +18,17 @@ class JiraDependencyDashboardItem {
             this.API.showLoadingBar();
         };
         this.API.once("afterRender", renderFunction.bind(this));
+    }
+
+    private getDataFromApi() {
+        Repository.get<any>("/rest/depindency-api/1.0/message/hello")
+            .done((data: any) => {
+                console.log(data);
+            })
+            .fail((jqXHR: JQueryXHR) => {
+                console.log(jqXHR.status);
+                console.log(jqXHR.responseText)
+            });
     }
 }
 
