@@ -1,9 +1,9 @@
-/// <reference path="../typings/globals/jquery/index.d.ts" />
+/// <reference path="../typings/custom/DashboardItemAPI.d.ts" />
 
 import * as Repository from "Repository";
 
 class JiraDependencyDashboardItem {
-    constructor(private API) {
+    constructor(private dashboardItemAPI: DashboardItemAPI) {
         this.getDataFromApi();
     }
 
@@ -15,9 +15,9 @@ class JiraDependencyDashboardItem {
      */
     public render(context, preferences) {
         let renderFunction = function () {
-            this.API.showLoadingBar();
+            this.dashboardItemAPI.showLoadingBar();
         };
-        this.API.once("afterRender", renderFunction.bind(this));
+        this.dashboardItemAPI.once("afterRender", renderFunction.bind(this));
     }
 
     private getDataFromApi() {

@@ -31,8 +31,8 @@
       <author>
         <name>Softwire</name>
       </author>
-      <!-- TODO fix me, use a resource -->
-      <thumbnail location="http://www.google.com/gadgets/directory/348515928-no_image_gadget_thm.png"/>
+      <!-- Must be absolute as web resources are batched -->
+      <thumbnail location="https://www.atlassian.com/docroot/wac/resources/wac/img/social-icons/jira_logo.jpg"/>
     </definition>
     <description key="gadget.depindency.description"/>
     <!--<resource name="view" type="soy" location=":jira-depindency-resources/Com.Softwire.Jira.Depindency.Templates"/>-->

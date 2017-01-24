@@ -1,4 +1,4 @@
-declare const AJS: any; // TODO add type
+/// <reference path="../typings/custom/AJS.d.ts" />
 
 module Repository {
     const JIRA_PREFIX: string = "/jira"; // TODO this changes in different environments (local/test/dev - add config)

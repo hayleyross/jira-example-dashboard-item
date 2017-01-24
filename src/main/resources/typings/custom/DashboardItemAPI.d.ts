@@ -1,0 +1,66 @@
+/**
+ * See the table on https://developer.atlassian.com/jiradev/jira-platform/guides/dashboards/guide-building-a-dashboard-item-for-a-jira-p2-add-on/
+ */
+declare interface DashboardItemAPI {
+    /**
+     * Check if a dashboard item is configurable and if the current user has permission to edit this dashboard item's
+     * configuration.
+     * Returns {boolean} true if the current user can edit the gadget.
+     */
+    isEditable(): boolean;
+
+    /**
+     * Helper to extract the correct value to be persisted for a refresh field rendered with .refreshInterval
+     * Returns {string} value that should be persisted.
+     */
+    getRefreshFieldValue(fieldName: string): string;
+
+    /**
+     * Tries to save the passed preferences on the server for this dashboard item. If the user doesn't have permission
+     * to edit this dashboard item, no action will be performed.
+     */
+    savePreferences(preferences: any): void;
+
+    /**
+     * Sets the title for the dashboard item.
+     */
+    setTitle(title: string): void;
+
+    /**
+     * Trigger a refresh of the dashboard item.
+     */
+    initRefresh(): void;
+
+    /**
+     * Shows the loading bar for the dashboard item.
+     */
+    showLoadingBar(): void;
+
+    /**
+     * Hides the loading bar for the dashboard item.
+     */
+    hideLoadingBar(): void;
+
+    /**
+     * Hides the loading bar for the dashboard item.
+     */
+    getContext(): any; // TODO, probably HTMLElement
+
+    /**
+     * Close the edit dialog of the dashboard item.
+     */
+    closeEdit(): void;
+
+    /**
+     * Returns the Id for the dashboard item.
+     */
+    getGadgetId(): any; // TODO, like number or string
+
+    /**
+     * When you add some content dynamically to your dashboard item and it causes the height to increase a scroll will appear.
+     * Call this method to resize the content automatically and make the scroll go away.
+     */
+    resize(): any;
+
+    once(event: string, callback: () => void);
+}

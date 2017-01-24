@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "AJS": "file:src/main/resources/typings/custom/AJS.d.ts"
+  }
+}
