@@ -1,5 +1,3 @@
 export interface MessageDto {
-    message: {
-        value: string;
-    }
+    message: string
 }

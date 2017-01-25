@@ -1,11 +1,11 @@
 package com.softwire.jira.example.rest.models;
 
 import javax.xml.bind.annotation.*;
-@XmlRootElement(name = "message")
+@XmlRootElement(name = "messageContainer")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class MessageModel {
 
-    @XmlElement(name = "value")
+    @XmlElement(name = "message")
     private String message;
 
     public MessageModel() {

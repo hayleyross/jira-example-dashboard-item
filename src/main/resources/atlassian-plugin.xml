@@ -38,7 +38,6 @@
             <thumbnail location="https://www.atlassian.com/docroot/wac/resources/wac/img/social-icons/jira_logo.jpg"/>
         </definition>
         <description key="gadget.example.description"/>
-        <!--<resource name="view" type="soy" location=":jira-example-resources/Com.Softwire.Jira.Example.Templates"/>-->
         <amd-module>ExampleDashboardItem</amd-module>
     </dashboard-item>
     <rest name="Example Rest Resource" key="example-rest-resource" path="/example-api" version="1.0">

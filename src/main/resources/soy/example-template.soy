@@ -2,7 +2,12 @@
 /**
  * Renders a Hello message.
  * @param name the name of the user
+ * @param message a message to display
  */
-{template .helloWorld}
-<div>Hello {$name}! I'm your example dashboard item for today.</div>
+{template .HelloMessage}
+<div>
+    <p>Hello {$name}! I'm your example dashboard item for today.<p>
+    <p>Here's a message from the backend:</p>
+    <p>{$message}</p>
+</div>
 {/template}
