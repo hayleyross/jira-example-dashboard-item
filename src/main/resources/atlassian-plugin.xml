@@ -20,7 +20,7 @@
             <transformer key="lessTransformer"/>
         </transformation>
         <resource type="download" name="example-template-soy.js" location="/soy/example-template.soy"/>
-        <resource type="download" name="exampleDashboardItem.css" location="/css/exampleDashboardItem.css"/>
+        <resource type="download" name="exampleDashboardItem.css" location="/less/exampleDashboardItem.less"/>
         <resource type="download" name="exampleDashboardItem.js" location="/js/exampleDashboardItem.js"/>
         <resource type="download" name="images/" location="/images"/>
         <context>atl.dashboard</context>
