@@ -5,26 +5,24 @@ import {View} from "./View";
 export class ExampleDashboardItemView extends View {
     private message: string = "Message unknown";
 
-    public render($element: JQuery, preferences: ExamplePreferences): void {
+    public render($element: JQuery, preferences: ExamplePreferences): JQueryPromise<void|JQueryXHR> {
         this.API.showLoadingBar();
-        this.updateMessage(preferences).then(() => {
+        return this.updateMessage(preferences).then(() => {
             $element.html(Com.Softwire.Jira.Example.Templates.Main({
                 message: this.message,
                 name: preferences.name
             }));
 
-            this.API.hideLoadingBar();
             this.API.resize(); // "afterRender" event has already happened by this time
+        }).always(() => {
+            this.API.hideLoadingBar();
         });
     }
 
-    private updateMessage(preferences: ExamplePreferences): JQueryPromise<void> {
+    private updateMessage(preferences: ExamplePreferences): JQueryPromise<void|JQueryXHR> {
         return ExampleRepository.getHelloMessage(preferences.name)
             .then((data: MessageDto) => {
                 this.message = data.message;
-            })
-            .fail((jqXHR: JQueryXHR) => {
-                throw new Error("Error while fetching message for dashboard item: " + jqXHR.statusText);
             });
     }
 }

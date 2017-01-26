@@ -22,11 +22,11 @@ class ExampleDashboardItem {
     public render($element: JQuery, preferences: ExamplePreferences): void {
         this.setupRefresh(preferences, $element);
 
-        try {
-            this.view.render($element, preferences)
-        } catch (e) {
-            this.renderError($element, e.message);
-        }
+        this.view.render($element, preferences)
+            .fail((errorXhr: JQueryXHR) => { // TODO use bluebird or similar to wrap old version of jQuery and allow it to return new values from the chain
+                                             // Then we can have an error message of our choice here
+                this.renderError($element, errorXhr.statusText);
+            });
     }
 
     /**
@@ -37,11 +37,7 @@ class ExampleDashboardItem {
      * @param preferences The user preferences saved for this dashboard item
      */
     public renderEdit($element: JQuery, preferences: ExamplePreferences): void {
-        try {
-            this.configView.render($element, preferences)
-        } catch (e) {
-            this.renderError($element, e.message);
-        }
+        this.configView.render($element, preferences)
     }
 
     private setupRefresh(preferences: ExamplePreferences, $element: JQuery) {
