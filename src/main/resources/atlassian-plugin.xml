@@ -34,8 +34,8 @@
             <author>
                 <name>Softwire</name>
             </author>
-            <!-- (122px x 62px) -->
-            <thumbnail location="https://www.atlassian.com/docroot/wac/resources/wac/img/social-icons/jira_logo.jpg"/>
+            <!-- 122px x 62px -->
+            <thumbnail location="/download/resources/com.softwire.jira.example-dashboard-item:jira-example-resources/images/thumbnail.png"/>
         </definition>
         <description key="dashboarditem.example.description"/>
         <amd-module>ExampleDashboardItem</amd-module>
