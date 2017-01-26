@@ -35,35 +35,38 @@
  * @param? errorMessage
  */
 {template .Configuration}
-    {call Atlassian.DashboardItem.Common.Templates.config}
-        {param fields}
-            {call aui.form.fieldGroup}
-                {param content}
-                    {if $errorMessage}
-                        {call aui.form.fieldError}
-                            {param message: $errorMessage /}
+    <div class="example-dashboard-item config">
+        {call Atlassian.DashboardItem.Common.Templates.config}
+            {param fields}
+                {call aui.form.fieldGroup}
+                    {param content}
+                        {call aui.form.label}
+                            {param forField: 'name' /}
+                            {param isRequired : $validation.nameRequired /}
+                            {param content: getText('dashboarditem.example.config.name.label') /}
                         {/call}
-                    {/if}
-                    {call aui.form.label}
-                        {param forField: 'name' /}
-                        {param isRequired : $validation.nameRequired /}
-                        {param content: getText('dashboarditem.example.config.name.label') /}
-                    {/call}
-                    {call aui.form.input}
-                        {param id: 'name' /}
-                        {param name: 'name' /}
-                        {param type: 'text' /}
-                        {param value: $preferences.name /}
-                        {param maxLength: $validation.nameMaxLength /}
-                    {/call}
-                {/param}
-            {/call}
-            {call Atlassian.DashboardItem.Common.Templates.refreshInterval}
-                {param prefix: $prefix /}
-                {param id: 'refreshInterval' /}
-                {param value: $preferences.refresh /}
-            {/call}
-        {/param}
-        {param isConfigured: $preferences.isConfigured /}
-    {/call}
+                        {call aui.form.input}
+                            {param id: 'name' /}
+                            {param name: 'name' /}
+                            {param type: 'text' /}
+                            {param value: $preferences.name /}
+                            {param maxLength: $validation.nameMaxLength /}
+                        {/call}
+                        {if $errorMessage}
+                            {call aui.form.fieldError}
+                                {param message: $errorMessage /}
+                                {param extraClasses: 'show' /}
+                            {/call}
+                        {/if}
+                    {/param}
+                {/call}
+                {call Atlassian.DashboardItem.Common.Templates.refreshInterval}
+                    {param prefix: $prefix /}
+                    {param id: 'refreshInterval' /}
+                    {param value: $preferences.refresh /}
+                {/call}
+            {/param}
+            {param isConfigured: $preferences.isConfigured /}
+        {/call}
+    </div>
 {/template}

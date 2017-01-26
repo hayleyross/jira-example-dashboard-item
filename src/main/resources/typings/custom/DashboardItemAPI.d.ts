@@ -64,26 +64,11 @@ declare interface DashboardItemAPI {
      */
     resize(): any;
 
-    once(event: string, callback: () => void);
+    /**
+     *
+     * @param event TODO - add more events as discovered
+     * @param callback
+     */
+    once(event: "afterRender", callback: () => void);
 
-    gadget: Gadget;
-}
-
-// TODO lots more stuff on this
-declare interface Gadget {
-    amdModule: string;
-    configurable: boolean;
-    context: any;
-    gadgetUrl: string;
-    id: string;
-    isMaximizable: true;
-    layoutManager: any;
-    loaded: boolean;
-    minimized: boolean;
-    moduleAPI: DashboardItemAPI;
-    publicInterface: any;
-    securityToken: any;
-    title: string;
-    userPrefs: any;
-    webResourceKey: any;
 }
