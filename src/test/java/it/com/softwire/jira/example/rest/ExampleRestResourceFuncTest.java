@@ -25,7 +25,7 @@ public class ExampleRestResourceFuncTest {
     public void messageIsValid() {
 
         String baseUrl = System.getProperty("baseurl");
-        String resourceUrl = baseUrl + "/rest/example-api/1.0/message/hello";
+        String resourceUrl = baseUrl + "/rest/example-api/1.0/message/hello?name=World";
 
         RestClient client = new RestClient();
         Resource resource = client.resource(resourceUrl);

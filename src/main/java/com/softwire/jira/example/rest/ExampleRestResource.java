@@ -6,6 +6,7 @@ import com.softwire.jira.example.rest.models.MessageModel;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -19,8 +20,8 @@ public class ExampleRestResource {
     @AnonymousAllowed
     @Produces({MediaType.APPLICATION_JSON})
     @Path("/hello")
-    public Response getMessage()
+    public Response getMessage(@QueryParam("name") String name)
     {
-       return Response.ok(new MessageModel("Hello World from the REST resource")).build();
+       return Response.ok(new MessageModel("Hello " + name + " from the REST resource")).build();
     }
 }

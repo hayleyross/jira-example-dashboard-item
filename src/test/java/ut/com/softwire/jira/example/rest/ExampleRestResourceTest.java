@@ -26,7 +26,7 @@ public class ExampleRestResourceTest {
     public void messageIsValid() {
         ExampleRestResource resource = new ExampleRestResource();
 
-        Response response = resource.getMessage();
+        Response response = resource.getMessage("World");
         final MessageModel message = (MessageModel) response.getEntity();
 
         assertEquals("wrong message","Hello World from the REST resource",message.getMessage());

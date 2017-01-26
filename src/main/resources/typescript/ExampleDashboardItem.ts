@@ -38,13 +38,13 @@ class ExampleDashboardItem {
 
         this.setupRefresh(preferences, $element);
 
-        this.updateMessage().then(() => {
+        this.updateMessage(preferences).then(() => {
             if (this.hasGlobalErrors()) {
                 this.showGlobalError();
             } else {
                 this.$element.html(Com.Softwire.Jira.Example.Templates.Main({
                     message: this.message,
-                    name: preferences.name || "person without a name"
+                    name: preferences.name
                 }));
             }
 
@@ -73,8 +73,8 @@ class ExampleDashboardItem {
         }));
     }
 
-    private updateMessage(): JQueryPromise<void> {
-        return ExampleRepository.getHelloMessage()
+    private updateMessage(preferences: ExamplePreferences): JQueryPromise<void> {
+        return ExampleRepository.getHelloMessage(preferences.name)
             .then((data: MessageDto) => {
                 this.message = data.message;
             })

@@ -12,14 +12,14 @@ export module ExampleRepository {
         jiraPrefix = wrmContextPath();
     });
 
-    export function getHelloMessage(): JQueryPromise<MessageDto> {
-        return get<MessageDto>(Urls.HELLO_MESSAGE);
+    export function getHelloMessage(name: string): JQueryPromise<MessageDto> {
+        return get<MessageDto>(Urls.HELLO_MESSAGE + "?name=" + encodeURIComponent(name));
     }
 
-    function get<T>(url:string, data?: any): JQueryPromise<T> {
+    function get<T>(url:string): JQueryPromise<T> {
+        // Must encode query parameters into URL - usual JQuery 'data' setting isn't respected by AJS.$
         return AJS.$.ajax({
             url: jiraPrefix + Urls.EXAMPLE_API_BASE + url,
-            data: data,
             type: "GET",
             dataType: "json"
         });
