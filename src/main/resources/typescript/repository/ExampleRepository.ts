@@ -6,8 +6,6 @@ import {MessageDto} from "../models/MessageDto";
 declare const require: (imports: string[], module: Function) => void;
 
 export module ExampleRepository {
-    // Can get this by adding dependency on "wrm/context-path" and then executing the resulting function: wrmContextPath() -> figure out how to do this in typescript
-    // const JIRA_PREFIX: string = "/jira"; // TODO this changes in different environments (local/test/dev - add config)
     let jiraPrefix = "/jira";
 
     require(["wrm/context-path"], function(wrmContextPath) {

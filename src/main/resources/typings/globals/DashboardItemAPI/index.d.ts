@@ -12,7 +12,7 @@ declare interface DashboardItemAPI {
      * Helper to extract the correct value to be persisted for a refresh field rendered with .refreshInterval
      * Returns {string} value that should be persisted.
      */
-    getRefreshFieldValue(fieldName: string): string;
+    getRefreshFieldValue(fieldName?: string): string;
 
     /**
      * Tries to save the passed preferences on the server for this dashboard item. If the user doesn't have permission
@@ -26,9 +26,11 @@ declare interface DashboardItemAPI {
     setTitle(title: string): void;
 
     /**
-     * Trigger a refresh of the dashboard item.
+     * Initialise the refreshing of the dashboard item every n minutes,
+     * @param preferences.refresh minutes between refreshes
+     * @param renderFunction the function to be called to refresh
      */
-    initRefresh(preferences, callback): void;
+    initRefresh(preferences: { refresh: string }, renderFunction): void;
 
     /**
      * Shows the loading bar for the dashboard item.

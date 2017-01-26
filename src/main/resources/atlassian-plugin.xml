@@ -25,7 +25,7 @@
         <resource type="download" name="images/" location="/images"/>
         <context>atl.dashboard</context>
     </web-resource>
-    <dashboard-item key="example-dashboard-item">
+    <dashboard-item key="example-dashboard-item" configurable="true">
         <definition>
             <title key="dashboarditem.example.title"/>
             <categories>

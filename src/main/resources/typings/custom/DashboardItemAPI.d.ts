@@ -1,3 +1,5 @@
+/// <reference path="../globals/jquery/index.d.ts" />
+
 /**
  * See the table on https://developer.atlassian.com/jiradev/jira-platform/guides/dashboards/guide-building-a-dashboard-item-for-a-jira-p2-add-on/
  */

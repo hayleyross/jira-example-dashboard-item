@@ -1,4 +1,3 @@
-import {ExamplePreferences} from "../../typescript/models/ExamplePreferences";
 /**
  * Soy template namespace/syntax - see example-template.soy
  */
@@ -18,7 +17,8 @@ declare const Com: {
                     Configuration: (params: {
                         prefix: string,
                         validation: ExampleConfigValidation,
-                        preferences: ExamplePreferences
+                        preferences: ExamplePreferences,
+                        errorMessage?: string
                     }) => string,
                 }
             }
@@ -27,5 +27,13 @@ declare const Com: {
 };
 
 declare interface ExampleConfigValidation {
-    maxNameLength: number
+    nameMaxLength: number,
+    nameRequired: boolean
+}
+
+declare interface ExamplePreferences {
+    name: string;
+    refreshInterval: string;
+    refresh?: boolean;
+    isConfigured?: boolean;
 }

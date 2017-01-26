@@ -31,27 +31,36 @@
  * Template for rendering the configuration
  * @param prefix of the dashboard item
  * @param validation configuration, to include maxNameLength property
- * @param preferences the preferences set, to include name, refresh and isConfigured properties
+ * @param preferences the preferences set, to include name, refreshInterval and isConfigured properties
+ * @param? errorMessage
  */
 {template .Configuration}
     {call Atlassian.DashboardItem.Common.Templates.config}
         {param fields}
-            {call aui.form.label}
-                {param forField: 'name' /}
-                {param content: getText('dashboarditem.example.config.name.label') /}
+            {call aui.form.fieldGroup}
+                {param content}
+                    {if $errorMessage}
+                        {call aui.form.fieldError}
+                            {param message: $errorMessage /}
+                        {/call}
+                    {/if}
+                    {call aui.form.label}
+                        {param forField: 'name' /}
+                        {param isRequired : $validation.nameRequired /}
+                        {param content: getText('dashboarditem.example.config.name.label') /}
+                    {/call}
+                    {call aui.form.input}
+                        {param id: 'name' /}
+                        {param name: 'name' /}
+                        {param type: 'text' /}
+                        {param value: $preferences.name /}
+                        {param maxLength: $validation.nameMaxLength /}
+                    {/call}
+                {/param}
             {/call}
-            {call aui.form.input}
-                {param id: 'name' /}
-                {param name: 'name' /}
-                {param type: 'text' /}
-                {param value: $preferences.name /}
-                {param maxLength: $validation.maxNameLength /}
-                {param extraClasses: 'long-field' /}
-            {/call}
-
             {call Atlassian.DashboardItem.Common.Templates.refreshInterval}
                 {param prefix: $prefix /}
-                {param id: 'refresh-interval' /}
+                {param id: 'refreshInterval' /}
                 {param value: $preferences.refresh /}
             {/call}
         {/param}

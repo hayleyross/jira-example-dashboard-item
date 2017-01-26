@@ -16,11 +16,8 @@ declare const Com: {
                     Configuration: (params: {
                         prefix: string,
                         validation: ExampleConfigValidation,
-                        preferences: {
-                            name: string,
-                            refresh: any // TODO
-                            isConfigured: boolean
-                        }
+                        preferences: ExamplePreferences,
+                        errorMessage?: string
                     }) => string,
                 }
             }
@@ -29,5 +26,13 @@ declare const Com: {
 };
 
 declare interface ExampleConfigValidation {
-    maxNameLength: number
+    nameMaxLength: number,
+    nameRequired: boolean
+}
+
+declare interface ExamplePreferences {
+    name: string;
+    refreshInterval: string;
+    refresh?: boolean;
+    isConfigured?: boolean;
 }
