@@ -27,7 +27,7 @@
     </web-resource>
     <dashboard-item key="example-dashboard-item">
         <definition>
-            <title key="gadget.example.title"/>
+            <title key="dashboarditem.example.title"/>
             <categories>
                 <category>JIRA</category>
             </categories>
@@ -37,7 +37,7 @@
             <!-- (122px x 62px) -->
             <thumbnail location="https://www.atlassian.com/docroot/wac/resources/wac/img/social-icons/jira_logo.jpg"/>
         </definition>
-        <description key="gadget.example.description"/>
+        <description key="dashboarditem.example.description"/>
         <amd-module>ExampleDashboardItem</amd-module>
     </dashboard-item>
     <rest name="Example Rest Resource" key="example-rest-resource" path="/example-api" version="1.0">

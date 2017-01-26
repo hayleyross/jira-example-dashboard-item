@@ -1,13 +1,60 @@
 {namespace Com.Softwire.Jira.Example.Templates}
+
 /**
  * Renders a Hello message.
  * @param name the name of the user
  * @param message a message to display
  */
-{template .HelloMessage}
-<div class="example-dashboard-item">
-    <p>Hello {$name}! I'm your example dashboard item for today.<p>
-    <p>Here's a message from the backend:</p>
-    <p class="message">{$message}</p>
-</div>
+{template .Main}
+    <div class="example-dashboard-item">
+        <p>Hello {$name}! I'm your example dashboard item for today.<p>
+        <p>Here's a message from the backend:</p>
+        <p class="message">{$message}</p>
+    </div>
+{/template}
+
+/**
+ * @param title The title for the error message
+ * @param content The content of the error message (can be an empty string)
+ */
+{template .Error}
+    <div class="example-dashboard-item error">
+        {call aui.message.error}
+            {param titleContent: $title /}
+            {param content: $content /}
+            {param closeable: 'false' /}
+        {/call}
+    </div>
+{/template}
+
+/**
+ * Template for rendering the configuration
+ * @param prefix of the dashboard item
+ * @param validation configuration, to include maxNameLength property
+ * @param preferences the preferences set, to include name, refresh and isConfigured properties
+ */
+{template .Configuration}
+    {call Atlassian.DashboardItem.Common.Templates.config}
+        {param fields}
+            {call aui.form.label}
+                {param forField: 'name' /}
+                {param content: getText('dashboarditem.example.config.name.label') /}
+            {/call}
+            {call aui.form.input}
+                {param id: 'name' /}
+                {param name: 'name' /}
+                {param type: 'text' /}
+                {param value: $preferences.name /}
+                {param maxLength: $validation.maxNameLength /}
+                {param extraClasses: 'long-field' /}
+            {/call}
+
+            {call Atlassian.DashboardItem.Common.Templates.refreshInterval}
+                {param prefix: $prefix /}
+                {param id: 'refresh-interval' /}
+                {param value: $preferences.refresh /}
+            {/call}
+        {/param}
+        {param isConfigured: $preferences.isConfigured /}
+    {/call}
 {/template}
