@@ -1,16 +1,11 @@
-/// <reference path="../../typings/index.d.ts" />
+/// <reference path="../../../typings/index.d.ts" />
 
 import * as Urls from "./Urls";
 import {MessageDto} from "../models/MessageDto";
-
-declare const require: (imports: string[], module: Function) => void;
+import * as wrmContextPath from "wrm/context-path";
 
 export module ExampleRepository {
-    let jiraPrefix = "/jira";
-
-    require(["wrm/context-path"], function(wrmContextPath) {
-        jiraPrefix = wrmContextPath();
-    });
+    let jiraPrefix = wrmContextPath();
 
     export function getHelloMessage(name: string): JQueryPromise<MessageDto> {
         return get<MessageDto>(Urls.HELLO_MESSAGE + "?name=" + encodeURIComponent(name));

@@ -29,6 +29,7 @@ export class ExampleDashboardItemConfigurationView extends View {
     private getPreferencesOrDefaults(preferences: ExamplePreferences) {
         let copiedPreferences = _.clone(preferences || {});
         let preferencesWithDefaults: ExamplePreferences = _.defaults(copiedPreferences, this.defaultPreferences);
+
         preferencesWithDefaults.refresh = !!preferencesWithDefaults
             && preferencesWithDefaults.refreshInterval !== "undefined"
             && preferencesWithDefaults.refreshInterval !== "null";
@@ -86,7 +87,7 @@ export class ExampleDashboardItemConfigurationView extends View {
         }, {});
     }
 
-    private getValidationErrors(preferences: ExamplePreferences): string[] {
+    public getValidationErrors(preferences: ExamplePreferences): string[] {
         let validationErrors: string[] = [];
         if (this.configValidation.nameRequired && !preferences.name) {
             validationErrors.push("Please enter a name.");

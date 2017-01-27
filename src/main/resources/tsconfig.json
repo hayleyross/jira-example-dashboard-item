@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "module": "amd",
-    "baseUrl": "./typescript",
+    "baseUrl": "./typescript/main",
     "outFile": "./js/exampleDashboardItem.js",
     "sourceMap": true
   },
   "include": [
-    "./typescript/**/*"
+    "./typescript/main/**/*"
   ]
 }

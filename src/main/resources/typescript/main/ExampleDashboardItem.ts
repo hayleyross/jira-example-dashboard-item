@@ -1,3 +1,5 @@
+/// <reference path="../../typings/index.d.ts" />
+
 import {ExampleDashboardItemView} from "./views/ExampleDashboardItemView";
 import {ExampleDashboardItemConfigurationView} from "./views/ExampleDashboardItemConfigurationView";
 import {ErrorView} from "./views/ErrorView";

@@ -2,6 +2,7 @@
   "globalDependencies": {
     "AJS": "file:./typings/custom/AJS.d.ts",
     "DashboardItemAPI": "file:./typings/custom/DashboardItemAPI.d.ts",
+    "jasmine": "registry:dt/jasmine#2.5.0+20170117213604",
     "jquery": "registry:dt/jquery#1.10.0+20170104155652",
     "underscore": "registry:dt/underscore#1.8.3+20161123125004"
   }
