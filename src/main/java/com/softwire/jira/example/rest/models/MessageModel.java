@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class MessageModel {
 
-    @XmlElement(name = "message")
+    @XmlElement
     private String message;
 
     public MessageModel() {
