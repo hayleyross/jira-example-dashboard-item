@@ -21,7 +21,8 @@ module.exports = function (config) {
             coverageOptions: {
                 instrumentation: false
             },
-            reports: null
+            reports: null,
+            exclude: ['typescript/additionalTypings/**']
         },
 
 

@@ -117,6 +117,8 @@
                     <exclude>gruntfile.js</exclude>
                     <exclude>karma.conf.js</exclude>
                     <exclude>node_modules/**</exclude>
+                    <exclude>typings/**</exclude>
+                    <exclude>typescript/**</exclude>
                 </excludes>
             </resource>
         </resources>

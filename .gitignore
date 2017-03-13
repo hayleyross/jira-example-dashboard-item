@@ -5,3 +5,4 @@
 /src/main/resources/js/*.js
 /src/main/resources/node_modules
 /src/main/resources/.tscache
+/src/main/resources/typings
