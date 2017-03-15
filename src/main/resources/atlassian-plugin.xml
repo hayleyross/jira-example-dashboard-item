@@ -8,8 +8,8 @@
         <param name="plugin-icon">images/pluginIcon.png</param>
         <param name="plugin-logo">images/pluginLogo.png</param>
     </plugin-info>
-  <!-- add our i18n resource -->
-  <resource type="i18n" name="i18n" location="example-dashboard-item"/>
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="example-dashboard-item"/>
     <!-- add our web resources -->
     <web-resource key="jira-example-resources" name="jira-example Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
@@ -35,7 +35,8 @@
                 <name>Softwire</name>
             </author>
             <!-- 122px x 62px -->
-            <thumbnail location="/download/resources/com.softwire.jira.example-dashboard-item:jira-example-resources/images/thumbnail.png"/>
+            <thumbnail
+                    location="/download/resources/com.softwire.jira.example-dashboard-item:jira-example-resources/images/thumbnail.png"/>
         </definition>
         <description key="dashboarditem.example.description"/>
         <amd-module>ExampleDashboardItem</amd-module>
