@@ -9,23 +9,34 @@ To get this example plugin up and running, you'll need to:
 git clone git@gitlab.softwire.com:softwire/jira-example-dashboard-item.git
 ```
 
-2. Install the [Atlassian SDK](https://developer.atlassian.com/docs/getting-started/set-up-the-atlassian-plugin-sdk-and-build-a-project/install-the-atlassian-sdk-on-a-windows-system).
-3. From within the project directory, run `atlas-mvn package`
+2. Install [Node](https://nodejs.org/en/download/).
+3. Open `src/main/resources` and run
+```
+npm install -g typings
+npm install
+typings install
+```
+Sometimes `typings` refuses to install on your path, if so, try:
+```
+./node_modules/.bin/typings install
+```
+4. Install the [Atlassian SDK](https://developer.atlassian.com/docs/getting-started/set-up-the-atlassian-plugin-sdk-and-build-a-project/install-the-atlassian-sdk-on-a-windows-system).
+5. From within the project directory, run `atlas-mvn package`
 This will build and package the plugin using a modified version of Maven. 
 (Making sure all your build steps are defined in your `pom` makes this possible.)
 
-4. Run `atlas-run` from your project directory
+6. Run `atlas-run` from your project directory
 to spin up a local version of JIRA with your plugin pre-installed. This will take a while. 
 Ignore all the exceptions it throws, this won't stop it from running.  
 Having said that if it does fail to start the best you can probably do is try starting it again.
-5. When you see something like `jira started successfully in 415s at http://TAWNYOWL:2990/jira`, visit <http://localhost:2990/jira>
+7. When you see something like `jira started successfully in 415s at http://TAWNYOWL:2990/jira`, visit <http://localhost:2990/jira>
 and login with username 'admin' and password 'admin'.
-6. Create a new dashboard and use 'Add Gadget' to add a copy of the example dashboard item to the dashboard.
-7. From now on, if you make changes, you just need to run `atlas-mvn package` in a separate console window
+8. Create a new dashboard and use 'Add Gadget' to add a copy of the example dashboard item to the dashboard.
+9. From now on, if you make changes, you just need to run `atlas-mvn package` in a separate console window
 rather than restarting JIRA with `atlas-run`. 
 [QuickReload](https://developer.atlassian.com/docs/getting-started/set-up-the-atlassian-plugin-sdk-and-build-a-project/modify-the-plugin-using-quickreload) 
 should be triggered in the main console and it will swap in your plugin with the changes.
-8. You can see the add-on and its companion test add-on which is created by visiting <http://localhost:2990/jira/plugins/servlet/upm>.
+10. You can see the add-on and its companion test add-on which is created by visiting <http://localhost:2990/jira/plugins/servlet/upm>.
 
 ## Technologies and setup
 
