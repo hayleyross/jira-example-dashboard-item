@@ -1,5 +1,20 @@
 # Example JIRA dashboard item
 
+If you've ever tried to develop a plugin for JIRA, you'll know how much of a pain it can be
+to search through the outdated documentation (if there even is any), to work with all the strange
+technologies JIRA uses, and to write pages and pages of XML.
+
+Luckily, specifically if you're writing a dashboard item, help is available. JIRA's own new 
+dashboard items are written in a friendlier tech stack, using JavaScript AMD modules. 
+Downside: there's no documentation! 
+
+To make my own, and now hopefully your life a bit easier, I've written an example/skeleton JIRA dashboard item
+which demonstrates how to put together all these shiny bits and pieces. I've also used TypeScript
+for extra help in the front-end.
+
+Please feel free to comment, submit pull requests, and generally use this to make all the dashboard items
+you ever wanted!
+
 ## Zero to Hero
 
 To get this example plugin up and running, you'll need to:
@@ -287,8 +302,7 @@ There are unit and integration tests set up - use them! They get run automatical
 
 You're going to need to change the word "example" in a lot of places.
 
-I'll update this in more detail once I've done this myself, but here's a hopefully complete list 
-(some of these may depend on each other, TBD):
+I'll update this in more detail once I've done this myself, but here's a hopefully complete list:
 
 * Name of the folder
 * Name of the module in IntelliJ (should match the folder, but won't update when you rename the folder)
@@ -306,3 +320,8 @@ You'll also need to update the matching test packages.
 * Change the thumbnail image
 
 Please feel free to expand on this section as you learn / hit difficulties / discover new things.
+
+## Improvements
+
+I'd love to add [Bluebird](http://bluebirdjs.com/docs/why-bluebird.html) to this instead of using JQuery's not-so-nice 
+[Deferred](https://api.jquery.com/category/deferred-object/) objects.
