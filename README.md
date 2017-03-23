@@ -21,7 +21,7 @@ To get this example plugin up and running, you'll need to:
 
 1. Clone this repository using 
 ```git
-git clone git@gitlab.softwire.com:softwire/jira-example-dashboard-item.git
+git clone git@github.com:hayleyross/jira-example-dashboard-item.git
 ```
 
 2. Install [Node](https://nodejs.org/en/download/).
@@ -201,7 +201,7 @@ For example you can use the inbuilt form fields to make the configuration view l
 ```
 
 There's no documentation for this but you can find examples of this by searching the [source code](https://confluence.atlassian.com/jirakb/download-jira-source-code-800307235.html) of the in-built JIRA plugins.
-(Access to the source code is given by our JIRA license, login details [here](https://swiki.softwire.com/pages/viewpage.action?pageId=17664847)). 
+(Access to the source code is given by your JIRA license). 
 
 A good example of the new shiny gadget/dashboard item stack, including Soy, is the Bubble Chart gadget.
 
