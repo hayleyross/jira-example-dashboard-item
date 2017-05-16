@@ -1,18 +1,20 @@
 # Example JIRA dashboard item
 
-If you've ever tried to develop a plugin for JIRA, you'll know how much of a pain it can be
-to search through the outdated documentation (if there even is any), to work with all the strange
-technologies JIRA uses, and to write pages and pages of XML.
+Working with JIRA server can be a challenging process, especially for developers encountering the stack
+for the first time. As you'd expect from a feature-heavy application that's been around for many years,
+there are a lot of conventions and effectively languages to learn - in particular the XML used to 
+declare plugins and dashboard items ("widgets"), and the Velocity templating language.
 
 Luckily, specifically if you're writing a dashboard item, help is available. JIRA's own new 
-dashboard items are written in a friendlier tech stack, using JavaScript AMD modules. 
-Downside: there's no documentation! 
+dashboard items are written in a friendly, well-known tech stack, using JavaScript AMD modules. 
+The only downside is that it looks like they're still writing the documentation for JIRA server,
+perhaps since most of their development effort is now focused on JIRA Cloud.
 
 To make my own, and now hopefully your life a bit easier, I've written an example/skeleton JIRA dashboard item
 which demonstrates how to put together all these shiny bits and pieces. I've also used TypeScript
 for extra help in the front-end.
 
-Please feel free to comment, submit pull requests, and generally use this to make all the dashboard items
+Please feel free to comment, fork this repository, submit pull requests, and generally use this to make all the dashboard items
 you ever wanted!
 
 ## Zero to Hero
@@ -56,7 +58,7 @@ should be triggered in the main console and it will swap in your plugin with the
 ## Technologies and setup
 
 I've tried hard to use all the new shiny technologies in this and to abstract it away from the
-ugliness of JIRA as much as possible. 
+steep learning curve of JIRA as much as possible. 
 
 We have primarily
 * Java
@@ -68,7 +70,7 @@ Atlassian's take on Google's [Closure templates](https://developers.google.com/c
 ### Plugin declaration
 
 All the components of the plugin are declared in `src/main/resources/atlassian-plugin.xml`. 
-This is an ugly but necessary list of every single thing your plugin contains and depends on. 
+This is a list of every single thing your plugin contains and depends on. 
 
 It's all focused around the dashboard item which is declared as follows:
 ```xml
@@ -200,7 +202,7 @@ For example you can use the inbuilt form fields to make the configuration view l
 {/call}
 ```
 
-There's no documentation for this but you can find examples of this by searching the [source code](https://confluence.atlassian.com/jirakb/download-jira-source-code-800307235.html) of the in-built JIRA plugins.
+I haven't been able to find any documentation for this, but you can find examples of this by searching the [source code](https://confluence.atlassian.com/jirakb/download-jira-source-code-800307235.html) of the in-built JIRA plugins.
 (Access to the source code is given by your JIRA license). 
 
 A good example of the new shiny gadget/dashboard item stack, including Soy, is the Bubble Chart gadget.
@@ -279,7 +281,7 @@ The URLs to access these images will look like
 
 ### Backend
 
-The backend consists of a `RestResource` where all the ugliness of querying JIRA will be. 
+The backend consists of a `RestResource` where all the fun of querying JIRA will be. 
 (You don't want to do this in the frontend as then you have to deal with authentication.)
 
 This is declared in the plugin XML with 
@@ -291,8 +293,10 @@ This is declared in the plugin XML with
 ```
 
 You can use constructor dependency injection to pull in any components of JIRA you need and use the methods on those.
-There's a somewhat ugly example [here](https://developer.atlassian.com/jiradev/jira-platform/guides/dashboards/tutorial-writing-a-plugin-gadget-that-shows-days-left-in-a-version#Tutorial-Writingaplugingadgetthatshowsdaysleftinaversion-Step5.MakeResourcesAvailabletoyourGadget) - 
+There's a rough example [here](https://developer.atlassian.com/jiradev/jira-platform/guides/dashboards/tutorial-writing-a-plugin-gadget-that-shows-days-left-in-a-version#Tutorial-Writingaplugingadgetthatshowsdaysleftinaversion-Step5.MakeResourcesAvailabletoyourGadget) - 
 ignore all the references to Velocity templates as we're using a newer, shinier templating language.
+I'd also recommend giving some thought to separation of concerns, rather than
+following Atlassian's instructive but rather concise example. 
 
 There are unit and integration tests set up - use them! They get run automatically with `atlas-mvn package`.
 
@@ -324,4 +328,5 @@ Please feel free to expand on this section as you learn / hit difficulties / dis
 ## Improvements
 
 I'd love to add [Bluebird](http://bluebirdjs.com/docs/why-bluebird.html) to this instead of using JQuery's not-so-nice 
-[Deferred](https://api.jquery.com/category/deferred-object/) objects.
+[Deferred](https://api.jquery.com/category/deferred-object/) objects. 
+If you fancy doing this before I get round to it, please feel free to submit a pull request.
